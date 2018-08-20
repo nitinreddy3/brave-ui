@@ -3,22 +3,32 @@
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 import styled from 'styled-components'
-import { Props } from './index'
-import { setTheme } from '../../../helpers'
-
-export const StyledWrapper = styled.div`
-  max-width: ${(p: Props) => setTheme(p.theme, 'maxWidth') || '254px'};
-  width: 100%;
-` as any
 
 export const StyledInput = styled.input`
-  min-height: ${(p: Props) => setTheme(p.theme, 'minHeight') || 'auto'};
+  min-height: auto;
   box-sizing: border-box;
   width: 100%;
-  font-family: Muli, sans-serif;
+  max-width: 100%;
+  font-size: 14px;
+  font-family: "Poppins", sans-serif;
   border: 1px solid #DFDFE8;
-  border-radius: 6px;
-  padding: 7px 0px 7px 10px;
-  font-size: 16px;
-  line-height: 26px;
+  border-radius: 3px;
+  padding: 12px 10px;
+  color: #686978;
+  outline: unset;
+
+  &:focus {
+    border-color: #A1A8F2;
+  }
+
+  &::placeholder {
+    color: #B8B9C4;
+    font-weight: normal;
+    text-align: left;
+    letter-spacing: 0;
+  }
+
+  &:disabled {
+    opacity: 0.3;
+  }
 ` as any

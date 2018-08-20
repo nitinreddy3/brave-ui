@@ -3,41 +3,28 @@
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 import * as React from 'react'
-import * as CSS from 'csstype'
-import { StyledWrapper, StyledInput } from './style'
-import ControlWrapper from '../../../features/rewards/controlWrapper/index'
+import { StyledInput } from './style'
 
 export interface Props {
   id?: string
-  title?: React.ReactNode
   defaultValue?: string
   disabled?: boolean
-  theme?: Theme
-  onChange?: (event: React.ChangeEvent<HTMLInputElement>, child: React.ReactNode) => void
+  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void
   placeholder?: string
-}
-
-interface Theme {
-  maxWidth?: CSS.MaxWidthProperty<1>
-  minHeight?: CSS.MinHeightProperty<1>
 }
 
 export default class Input extends React.PureComponent<Props, {}> {
   render () {
-    const { id, onChange, defaultValue, title, theme, disabled, placeholder } = this.props
+    const { id, onChange, defaultValue, disabled, placeholder } = this.props
 
     return (
-      <StyledWrapper id={id} theme={theme}>
-        <ControlWrapper title={title} theme={theme}>
-          <StyledInput
-            onChange={onChange}
-            disabled={disabled}
-            defaultValue={defaultValue}
-            theme={theme}
-            placeholder={placeholder}
-          />
-        </ControlWrapper>
-      </StyledWrapper>
+      <StyledInput
+        id={id}
+        onChange={onChange}
+        disabled={disabled}
+        defaultValue={defaultValue}
+        placeholder={placeholder}
+      />
     )
   }
 }

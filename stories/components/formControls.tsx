@@ -89,7 +89,7 @@ storiesOf('Components/Form controls', module)
     return (
       <Input
         defaultValue={text('Value', store.state.defaultValue)}
-        title={text('Title', 'Device name')}
+        disabled={boolean('Disabled', false)}
         onChange={onChange}
       />
     )
