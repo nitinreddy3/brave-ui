@@ -8,7 +8,6 @@ import Page from '../../../../src/old/page/index'
 import { Heading } from '../../../../src/old/headings/index'
 import Paragraph from '../../../../src/old/paragraph/index'
 import { Grid, Column } from '../../../../src/components/layout/gridList/index'
-import Card from '../../../../src/components/layout/card'
 import UnstyledButton from '../../../../src/old/unstyledButton/index'
 import { PushButton } from '../../../../src/old/v1/pushButton/index'
 import Image from '../../../../src/old/v1/image/index'
@@ -231,12 +230,16 @@ class WelcomePage extends React.PureComponent<{}, WelcomePageState> {
         }}
       >
         <Page theme={theme.welcomePage}>
-          <Card theme={theme.panel}>
+        {/*
+          NOTE: this component should ideally be a card component
+          but since ATM there's no spec for this we're using a styled div
+        */}
+          <div style={theme.panel}>
             <div style={theme.panelWrapper}>
               {this.currentScreen}
               {this.footer}
             </div>
-          </Card>
+          </div>
         </Page>
       </div>
     )
